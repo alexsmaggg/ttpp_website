@@ -1,2 +1,88 @@
-<body>
-</body>
+<style>
+.ytp-large-play-button-bg{
+    -webkit-transition: fill .1s cubic-bezier(0.4,0,1,1),fill-opacity .1s cubic-bezier(0.4,0,1,1);
+    transition: fill .1s cubic-bezier(0.4,0,1,1),fill-opacity .1s cubic-bezier(0.4,0,1,1);
+    fill: #212121;
+    fill-opacity: .8;
+}
+.ytp-large-play-button{
+cursor: pointer;
+position: absolute;
+    left: 50%;
+    top: 45%;
+    width: 68px;
+    height: 48px;
+    margin-left: -34px;
+    margin-top: -24px;
+    -webkit-transition: opacity .25s cubic-bezier(0,0,0.2,1);
+    transition: opacity .25s cubic-bezier(0,0,0.2,1);
+    z-index: 64;
+}
+#play_vid{
+display: flex;
+justify-content: center;
+}
+.player_container{
+display: flex;
+justify-content: center;
+}
+</style> <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script> <script>
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '497',
+                width: '768',
+                videoId: 'NRuZBnHc1C0',
+                events: {
+                    'onReady': onPlayerReady,
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            $('#play_vid').click(function() {
+                $('#player').show();
+                $('#play_vid').hide();
+            });
+            $('#play_vid').click(function() {
+                event.target.playVideo();
+            });
+        }
+
+        $(document).ready(function() {
+            $('#player').hide();
+            $("#play_vid").hover(function () {
+                  $('.ytp-large-play-button-bg').css("fill","red");
+                  $('.ytp-large-play-button-bg').css("fill-opacity","1");
+              },
+              function () {
+                  $('.ytp-large-play-button-bg').css("fill","#212121");
+                 $('.ytp-large-play-button-bg').css("fill-opacity",".8");
+            });
+       });    
+    </script>
+<div class="player_container">
+	<div id="player">
+	</div>
+	<div>
+		<div id="play_vid">
+ <img src="https://tula.tpprf.ru/ru/test/thumbnail.png">
+			<div class="ytp-large-play-button ytp-button" arial-lable="Смотреть">
+<svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00" style="fill: rgb(33, 33, 33); fill-opacity: 0.8;"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+			</div>
+ <br>
+		</div>
+ <br>
+	</div>
+</div>
+ <br>
+<p style="text-align: left;">
+	 Использованы материалы АО "Региональная Корпорация развития и поддержки Тульской области" с сайта invest-tula.com
+</p>
+ <br>
